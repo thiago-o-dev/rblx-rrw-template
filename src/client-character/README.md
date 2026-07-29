@@ -1,0 +1,1 @@
+Runs everytime the local character dies, good for setting up specific effects.

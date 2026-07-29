@@ -1,0 +1,19 @@
+# Project place file
+/Captain.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+
+# Wally
+Packages/*.lua
+ServerPackages/*.lua
+DevPackages/*.lua
+Packages/_index/
+ServerPackages/_index/
+DevPackages/_index/
+
+# Documentation
+docs/.obsidian/
