@@ -11,13 +11,13 @@ Captain/
 │
 ├── src/    
 │   ├── client/                 # Client-only codebase (Visual interpolation, UI, Input)
-│   │   ├── Game/               # Input, Camera, Client-side render controllers
+│   │   ├── Game/               # Vertical slice development of features.
 │   │   ├── UI/                 
 │   │   ├── Adapters/           # Used to talk to specific packages and roblox engine, making control easier
 │   │   └── init.client.luau    # Client bootstrap entry point
 │   │
 │   ├── server/                 # Server-only codebase (PROPRIETARY ENGINE LOGIC)
-│   │   ├── Game/               # Match, Physics, AI, Ruleset, Tactics, Security services and their specific data like states.
+│   │   ├── Game/               # Vertical slice development of features.
 │   │   ├── Infrastructure/     
 │   │   ├── Guards/             # Mostly for Input sanitization, Anti-cheat & buffer guards
 │   │   ├── Adapters/           # Used to talk to specific packages and roblox engine, making control easier
