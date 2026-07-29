@@ -3,7 +3,7 @@
 The project is structured for synchronization via **Rojo** and package management via **Wally** (with **Zap** managed via Rokit). It strictly enforces clear boundaries between client, server, shared logic, assets, and third-party packages.
 
 ```text
-Captain/
+root/
 │
 ├── docs/                       # Engine documentation & specifications, root files are confirmed current information
 │   ├── plan/                   # Rework architectural plans made by ai
