@@ -9,4 +9,4 @@ for _, moduleScript in ipairs(Generated:GetChildren()) do
 end
 
 -- Example usage
-print(NetworkModulesFound)
+-- print(NetworkModulesFound)
