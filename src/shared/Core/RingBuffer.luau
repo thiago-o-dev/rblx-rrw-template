@@ -25,7 +25,7 @@ function RingBuffer.new<T>(capacity: number): RingBuffer<T>
 	return (self :: any) :: RingBuffer<T>
 end
 
-function RingBuffer.push<T>(self: RingBuffer<T>, item: any)
+function RingBuffer.push<T>(self: RingBuffer<T>, item: T)
 	self.data[self.tail] = item
 	self.tail = (self.tail % self.capacity) + 1
 	if self.count < self.capacity then
@@ -35,7 +35,7 @@ function RingBuffer.push<T>(self: RingBuffer<T>, item: any)
 	end
 end
 
-function RingBuffer.pop<T>(self: RingBuffer<T>): any?
+function RingBuffer.pop<T>(self: RingBuffer<T>): T?
 	if self.count == 0 then
 		return nil
 	end
@@ -46,7 +46,7 @@ function RingBuffer.pop<T>(self: RingBuffer<T>): any?
 	return item
 end
 
-function RingBuffer.get<T>(self: RingBuffer<T>, index: number): any?
+function RingBuffer.get<T>(self: RingBuffer<T>, index: number): T?
 	if index < 1 or index > self.count then
 		return nil
 	end
