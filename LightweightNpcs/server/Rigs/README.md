@@ -1,0 +1,1 @@
+Rigs are added in the studio.

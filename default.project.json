@@ -18,6 +18,15 @@
       },
       "ServerPackages": {
         "$path": "ServerPackages"
+      },
+      "LightweightNpcs":{
+        "$path": "LightweightNpcs/server"
+      }
+    },
+
+    "ReplicatedFirst":{
+      "LightweightNpcsClient":{
+        "$path": "LightweightNpcs/replicated-first"
       }
     },
 
