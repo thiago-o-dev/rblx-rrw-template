@@ -34,7 +34,7 @@ event UnitPositionBatch = {
 	call: SingleAsync,
 	data: struct {
 		serverTime: f64,
-		transforms: UnitTransform[..22],
+		transforms: UnitTransform[..50],
 	}
 }
 
@@ -44,7 +44,7 @@ event UnitAnimationBatch = {
 	call: SingleAsync,
 	data: struct {
 		serverTime: f64,
-		animations: UnitAnimationUpdate[..22],
+		animations: UnitAnimationUpdate[..50],
 	}
 }
 

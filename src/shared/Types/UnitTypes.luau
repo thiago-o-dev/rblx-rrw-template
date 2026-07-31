@@ -52,7 +52,7 @@ export type UnitRecord = {
 	config: UnitConfig,
 	internal: UnitInternal,
 	position: Vector3,
-	targetPosition: Vector3,
+	-- targetPosition: Vector3,
 	facingAngle: number,
 	targetAngle: number,
 	velocity: Vector3,
@@ -61,9 +61,9 @@ export type UnitRecord = {
 	jumpRequested: boolean,
 	playingAnimations: { [number]: number },
 	data: { [string]: any },
-	onThink: LemonSignal.Signal<UnitRecord>,
+	onThink: LemonSignal.Signal<number>, -- delta time
 	onDeath: LemonSignal.Signal<UnitRecord>,
-	onCleanup: LemonSignal.Signal<UnitRecord>,
+	onCleanup: LemonSignal.Signal<>,
 }
 
 export type PlayerRecord = {

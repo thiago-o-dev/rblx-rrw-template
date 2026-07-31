@@ -1,7 +1,9 @@
 --!strict
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UnitTypes = require(script.Parent.Parent.Types.UnitTypes)
 
-local DEFAULT_RIGS = game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Rigs")
+-- Assumes folder rigs exists
+local DEFAULT_RIGS = ReplicatedStorage.Assets.Rigs
 
 local UnitDefinitions = {}
 
