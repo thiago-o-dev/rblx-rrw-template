@@ -213,7 +213,7 @@ reliable.OnClientEvent:Connect(function(buff, inst)
 			value = {  }
 			value["serverTime"] = buffer.readf64(incoming_buff, read(8))
 			local len_1 = buffer.readu8(incoming_buff, read(1))
-			assert(len_1 <= 11, "value is more than 11!")
+			assert(len_1 <= 50, "value is more than 50!")
 			value["animations"] = table.create(len_1)
 			for i_1 = 1, len_1 do
 				local val_1
@@ -263,7 +263,7 @@ unreliable[1].OnClientEvent:Connect(function(buff, inst) -- UnitPositionBatch
 	value = {  }
 	value["serverTime"] = buffer.readf64(incoming_buff, read(8))
 	local len_2 = buffer.readu8(incoming_buff, read(1))
-	assert(len_2 <= 11, "value is more than 11!")
+	assert(len_2 <= 50, "value is more than 50!")
 	value["transforms"] = table.create(len_2)
 	for i_2 = 1, len_2 do
 		local val_2

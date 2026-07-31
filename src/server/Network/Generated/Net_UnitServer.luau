@@ -253,7 +253,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_1 = #value["transforms"]
-			assert(len_1 <= 11, "value is more than 11!")
+			assert(len_1 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_1)
 			for i_1 = 1, len_1 do
@@ -285,7 +285,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_2 = #value["transforms"]
-			assert(len_2 <= 11, "value is more than 11!")
+			assert(len_2 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_2)
 			for i_2 = 1, len_2 do
@@ -317,7 +317,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_3 = #value["transforms"]
-			assert(len_3 <= 11, "value is more than 11!")
+			assert(len_3 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_3)
 			for i_3 = 1, len_3 do
@@ -353,7 +353,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_4 = #value["transforms"]
-			assert(len_4 <= 11, "value is more than 11!")
+			assert(len_4 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_4)
 			for i_4 = 1, len_4 do
@@ -387,7 +387,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_5 = #value["transforms"]
-			assert(len_5 <= 11, "value is more than 11!")
+			assert(len_5 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_5)
 			for i_5 = 1, len_5 do
@@ -507,7 +507,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_6 = #value["animations"]
-			assert(len_6 <= 11, "value is more than 11!")
+			assert(len_6 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_6)
 			for i_6 = 1, len_6 do
@@ -535,7 +535,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_7 = #value["animations"]
-			assert(len_7 <= 11, "value is more than 11!")
+			assert(len_7 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_7)
 			for i_7 = 1, len_7 do
@@ -570,7 +570,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_8 = #value["animations"]
-			assert(len_8 <= 11, "value is more than 11!")
+			assert(len_8 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_8)
 			for i_8 = 1, len_8 do
@@ -607,7 +607,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_9 = #value["animations"]
-			assert(len_9 <= 11, "value is more than 11!")
+			assert(len_9 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_9)
 			for i_9 = 1, len_9 do
@@ -642,7 +642,7 @@ local returns = {
 			alloc(8)
 			buffer.writef64(outgoing_buff, outgoing_apos, value["serverTime"])
 			local len_10 = #value["animations"]
-			assert(len_10 <= 11, "value is more than 11!")
+			assert(len_10 <= 50, "value is more than 50!")
 			alloc(1)
 			buffer.writeu8(outgoing_buff, outgoing_apos, len_10)
 			for i_10 = 1, len_10 do
