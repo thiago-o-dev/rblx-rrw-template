@@ -1,2 +1,4 @@
 -- Require the modules here
-local _UnitService = require(script.Game.Unit.UnitService)
+local UnitService = require(script.Game.Unit.UnitService)
+
+UnitService.init()

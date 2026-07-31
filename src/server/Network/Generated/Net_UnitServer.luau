@@ -148,6 +148,9 @@ if not RunService:IsRunning() then
 			fireList = noop,
 			fireSet = noop
 		}),
+		UnitClientHandshake = table.freeze({
+			on = noop
+		}),
 		UnitAnimationBatch = table.freeze({
 			fire = noop,
 			fireAll = noop,
@@ -235,6 +238,27 @@ end
 
 RunService.Heartbeat:Connect(sendEvents)
 
+local reliable_events = table.create(1)
+reliable_events[0] = {}
+reliable.OnServerEvent:Connect(function(player, buff, inst)
+	incoming_buff = buff
+	incoming_inst = inst
+	incoming_read = 0
+	incoming_ipos = 0
+	local len = buffer.len(buff)
+	while incoming_read < len do
+		local id = buffer.readu8(buff, read(1))
+		if id == 0 then -- UnitClientHandshake
+			local value
+			value = {  }
+			for _, cb in reliable_events[0] do
+				task.spawn(cb, player, value)
+			end
+		else
+			error("Unknown event id")
+		end
+	end
+end)
 table.freeze(polling_queues_reliable)
 table.freeze(polling_queues_unreliable)
 
@@ -489,6 +513,15 @@ local returns = {
 				buffer.copy(outgoing_buff, outgoing_apos, buff, 0, used)
 				table.move(inst, 1, #inst, #outgoing_inst + 1, outgoing_inst)
 				player_map[player] = save()
+			end
+		end,
+	},
+	UnitClientHandshake = {
+		on = function(callback: (player: Player, value: ({
+		})) -> ()): () -> ()
+			table.insert(reliable_events[0], callback)
+			return function()
+				table.remove(reliable_events[0], table.find(reliable_events[0], callback))
 			end
 		end,
 	},

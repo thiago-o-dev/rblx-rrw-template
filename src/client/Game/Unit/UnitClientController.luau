@@ -29,6 +29,8 @@ function UnitClientController.init()
 
 	-- Render Loop
 	RunService.Heartbeat:Connect(UnitClientController.onHeartbeat)
+
+	Net_UnitClient.UnitClientHandshake:fire()
 end
 
 function UnitClientController.onInitialUnitState(data: {
@@ -43,7 +45,11 @@ function UnitClientController.onInitialUnitState(data: {
 	end
 
 	local model = (data.templateModel:Clone()) :: Model
-	model.Name = "UnitVisual_" .. tostring(data.unitId)
+	if data.unitId < 1000 then
+		model.Name = "UnitVisual_" .. string.format("%03d", data.unitId)
+	else
+		model.Name = "UnitVisual_" .. tostring(data.unitId)
+	end
 
 	if model.PrimaryPart then
 		model.PrimaryPart.Anchored = true

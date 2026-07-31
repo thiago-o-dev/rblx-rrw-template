@@ -48,8 +48,13 @@ function UnitInterpolator.sampleTimeline(unit: UnitTypes.ClientUnitRecord, rende
 		return oldest.cframe
 	end
 
-	-- Overrun: renderTime exceeds newest snapshot
-	return nil
+	-- Overrun check: renderTime exceeds newest snapshot -> hold latest known position
+	local newest = ringBuffer:get(count)
+	if newest then
+		return newest.cframe
+	end
+
+	return unit.currentCFrame
 end
 
 return UnitInterpolator

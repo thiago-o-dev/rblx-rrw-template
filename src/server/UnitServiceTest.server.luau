@@ -2,11 +2,7 @@ local ServerScriptService = game:GetService("ServerScriptService")
 
 local UnitService = require(ServerScriptService.Server.Game.Unit.UnitService)
 
-local maxNpcs = 30
-
-local npcCullRadius = 500
-
-local npcs = {}
+local maxNpcs = 300
 
 for j = 1, maxNpcs do
 	local box = 50 + j

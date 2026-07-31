@@ -29,6 +29,7 @@ function UnitServerManager.init()
 	-- Connect Player Join / Leave
 	Players.PlayerAdded:Connect(UnitServerManager.onPlayerAdded)
 	Players.PlayerRemoving:Connect(UnitServerManager.onPlayerRemoving)
+	UnitNetworkServer.onClientHandshake:Connect(UnitServerManager.onPlayerHandshake)
 
 	for _, player in Players:GetPlayers() do
 		UnitServerManager.onPlayerAdded(player)
@@ -39,6 +40,7 @@ function UnitServerManager.init()
 end
 
 function UnitServerManager.onPlayerAdded(player: Player)
+	print(`Player {player} joined!`)
 	local playerRecord: UnitTypes.PlayerRecord = {
 		player = player,
 		isReady = false,
@@ -50,6 +52,11 @@ function UnitServerManager.onPlayerAdded(player: Player)
 	for _, unitRecord in UnitServerManager.activeUnits do
 		UnitNetworkServer.sendInitialState(player, unitRecord)
 	end
+end
+
+function UnitServerManager.onPlayerHandshake(player: Player)
+	UnitServerManager.playerRecords[player].isReady = true
+	print(`Player {player} set as ready due to handshake`)
 end
 
 function UnitServerManager.onPlayerRemoving(player: Player)

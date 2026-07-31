@@ -1,5 +1,7 @@
 --!strict
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerScriptService = game:GetService("ServerScriptService")
+local LemonSignal = require(ReplicatedStorage.Packages.LemonSignal)
 local Net_UnitServer = require(ServerScriptService.Server.Network.Generated.Net_UnitServer)
 local UnitTypes = require(game:GetService("ReplicatedStorage").Shared.Types.UnitTypes)
 
@@ -42,6 +44,14 @@ function UnitNetworkServer.broadcastPositionBatch(
 						position = vector.create(unit.position.X, unit.position.Y, unit.position.Z),
 						angle = unit.facingAngle,
 					})
+
+					if #transformList == 50 then
+						Net_UnitServer.UnitPositionBatch.fire(player, {
+							serverTime = serverTime,
+							transforms = transformList,
+						})
+						transformList = {}
+					end
 				end
 			end
 		end
@@ -80,6 +90,14 @@ function UnitNetworkServer.broadcastAnimationBatch(
 						channel = channel,
 						animIndex = animIndex,
 					})
+
+					if #animList == 50 then
+						Net_UnitServer.UnitAnimationBatch.fire(player, {
+							serverTime = serverTime,
+							animations = animList,
+						})
+						animList = {}
+					end
 				end
 			end
 		end
@@ -97,5 +115,11 @@ function UnitNetworkServer.broadcastAnimationBatch(
 		table.clear(unit.internal.pendingAnimations)
 	end
 end
+
+UnitNetworkServer.onClientHandshake = LemonSignal.new()
+
+Net_UnitServer.UnitClientHandshake.on(function(player: Player, _value: {})
+	UnitNetworkServer.onClientHandshake:Fire(player)
+end)
 
 return UnitNetworkServer

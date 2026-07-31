@@ -1,3 +1,4 @@
+--!strict
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LemonSignal = require(ReplicatedStorage.Packages.LemonSignal)
 

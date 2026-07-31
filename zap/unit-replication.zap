@@ -56,3 +56,10 @@ event UnitDespawn = {
 		unitId: u16,
 	}
 }
+
+event UnitClientHandshake = {
+	from: Client,
+	type: Reliable,
+	call: ManyAsync,
+	data: struct {}
+}

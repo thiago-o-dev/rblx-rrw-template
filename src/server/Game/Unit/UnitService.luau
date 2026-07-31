@@ -8,6 +8,10 @@ local UnitServerManager = require(script.Parent.UnitServerManager)
 
 local UnitService = {}
 
+function UnitService.init()
+	UnitServerManager.init()
+end
+
 function UnitService.createUnit(
 	archetypeName: string,
 	initialCFrame: CFrame,

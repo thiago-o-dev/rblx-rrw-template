@@ -138,6 +138,9 @@ if not RunService:IsRunning() then
 		UnitDespawn = table.freeze({
 			setCallback = noop
 		}),
+		UnitClientHandshake = table.freeze({
+			fire = noop
+		}),
 		UnitAnimationBatch = table.freeze({
 			setCallback = noop
 		}),
@@ -318,6 +321,13 @@ local returns = {
 			return function()
 				reliable_events[2] = nil
 			end
+		end,
+	},
+	UnitClientHandshake = {
+		fire = function(value: ({
+		}))
+			alloc(1)
+			buffer.writeu8(outgoing_buff, outgoing_apos, 0)
 		end,
 	},
 	UnitAnimationBatch = {
